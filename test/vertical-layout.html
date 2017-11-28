@@ -62,15 +62,13 @@
       });
 
       it('should apply default gap', () => {
-        expect(getComputedStyle(c1).getPropertyValue('margin-top')).to.equal('16px'); // 0.5 * 2em in px
-        expect(getComputedStyle(c1).getPropertyValue('margin-bottom')).to.equal('16px');
+        expect(getComputedStyle(c1).getPropertyValue('margin-bottom')).to.equal('16px'); // 0.5 * 2em in px
         expect(getComputedStyle(c2).getPropertyValue('margin-top')).to.equal('16px'); // 0.5 * 2em in px
-        expect(getComputedStyle(c2).getPropertyValue('margin-bottom')).to.equal('16px');
       });
 
       it('should compensate for gap in layout wrapper', () => {
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-top')).to.equal('-16px'); // -0.5 * 2em in px
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-bottom')).to.equal('-16px');
+        expect(getComputedStyle(c1).getPropertyValue('margin-top')).to.equal('0px');
+        expect(getComputedStyle(c2).getPropertyValue('margin-bottom')).to.equal('0px');
       });
 
       it('should support updating with `updateStyles` call', () => {
@@ -78,12 +76,10 @@
           '--vaadin-vertical-layout-gap': '20px'
         });
 
-        expect(getComputedStyle(c1).getPropertyValue('margin-top')).to.equal('10px'); // 0.5 * 20px in px
-        expect(getComputedStyle(c1).getPropertyValue('margin-bottom')).to.equal('10px');
-        expect(getComputedStyle(c2).getPropertyValue('margin-top')).to.equal('10px'); // 0.5 * 20px in px
-        expect(getComputedStyle(c2).getPropertyValue('margin-bottom')).to.equal('10px');
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-top')).to.equal('-10px'); // -0.5 * 20px in px
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-bottom')).to.equal('-10px');
+        expect(getComputedStyle(c1).getPropertyValue('margin-top')).to.equal('0px');
+        expect(getComputedStyle(c1).getPropertyValue('margin-bottom')).to.equal('10px'); // 0.5 * 20px in px
+        expect(getComputedStyle(c2).getPropertyValue('margin-top')).to.equal('10px');
+        expect(getComputedStyle(c2).getPropertyValue('margin-bottom')).to.equal('0px');
       });
     });
 
@@ -102,8 +98,6 @@
         expect(getComputedStyle(c1).getPropertyValue('margin-right')).to.equal('0px');
         expect(getComputedStyle(c2).getPropertyValue('margin-left')).to.equal('0px');
         expect(getComputedStyle(c2).getPropertyValue('margin-right')).to.equal('0px');
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-left')).to.equal('0px');
-        expect(getComputedStyle(element.$.layout).getPropertyValue('margin-right')).to.equal('0px');
       });
 
       it('should not have margin or padding by default', () => {

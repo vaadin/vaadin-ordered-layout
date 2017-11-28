@@ -21,19 +21,7 @@ This program is available under Apache License Version 2.0, available at https:/
         display: none !important;
       }
 
-      #layout {
-        display: flex;
-        flex: 1 1 auto;
-
-        /*
-          Compensate for item margins, so that there are no gaps around
-          the layout itself.
-        */
-        margin-left: calc(-0.5 * var(--vaadin-horizontal-layout-gap));
-        margin-right: calc(-0.5 * var(--vaadin-horizontal-layout-gap));
-      }
-
-      #layout ::slotted(*) {
+      :host ::slotted(*) {
         /* Enable grow and shrink for items. */
         flex: 1 1 auto;
 
@@ -42,14 +30,22 @@ This program is available under Apache License Version 2.0, available at https:/
         margin-right: calc(0.5 * var(--vaadin-horizontal-layout-gap));
       }
 
+      :host ::slotted(:first-child) {
+        margin-left: 0;
+      }
+
+      :host ::slotted(:last-child) {
+        margin-right: 0;
+      }
+
       /* Theme variations */
 
-      :host([theme~="gap-none"]) #layout {
+      :host([theme~="gap-none"]) {
         margin-left: 0;
         margin-right: 0;
       }
 
-      :host([theme~="gap-none"]) #layout ::slotted(*) {
+      :host([theme~="gap-none"]) ::slotted(*) {
         margin-left: 0;
         margin-right: 0;
       }
@@ -63,9 +59,7 @@ This program is available under Apache License Version 2.0, available at https:/
       }
     </style>
 
-    <div id="layout">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </template>
 
   <script>

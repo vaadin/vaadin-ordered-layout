@@ -5,47 +5,54 @@ This program is available under Apache License Version 2.0, available at https:/
 -->
 
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/custom-style.html">
 <link rel="import" href="../vaadin-themable-mixin/vaadin-themable-mixin.html">
-<link rel="import" href="vaadin-ordered-layout-mixin.html">
+
+<custom-style>
+  <style>
+    html {
+      --vaadin-horizontal-layout-gap: 2em;
+    }
+  </style>
+</custom-style>
 
 <dom-module id="vaadin-horizontal-layout">
   <template>
     <style>
       :host {
         display: flex;
-
-        /* CSS API for host */
-        --vaadin-horizontal-layout-gap: 2em; /* (default) */
+        /* Stretch (to have the same behavior if wrapped inside a vaadin-vertical-layout) */
+        align-self: stretch;
+        align-items: center;
       }
 
       :host([hidden]) {
         display: none !important;
       }
 
+      /* Gap (support both "gap-none" and "no-gap" for not adding gaps) */
+
+      :host(:not([theme~="gap-none"]):not([theme~="no-gap"]))::before {
+        content: "";
+        margin-left: calc(-1 * var(--vaadin-horizontal-layout-gap));
+      }
+
+      :host(:not([theme~="gap-none"]):not([theme~="no-gap"])) ::slotted(*) {
+        margin-left: var(--vaadin-horizontal-layout-gap);
+      }
+
       /* Theme variations */
-
-      :host([theme~="gap-none"]) vaadin-horizontal-layout-container {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      :host([theme~="gap-none"]) vaadin-horizontal-layout-container ::slotted(*) {
-        margin-left: 0;
-        margin-right: 0;
-      }
 
       :host([theme~="margin"]) {
         margin: 2em;
       }
 
       :host([theme~="padding"]) {
-        padding: 2em;
+        padding: 1em;
       }
     </style>
 
-    <vaadin-horizontal-layout-container id="vaadinOrderedLayoutContainer">
-      <slot></slot>
-    </vaadin-horizontal-layout-container>
+    <slot></slot>
   </template>
 
   <script>
@@ -83,7 +90,7 @@ This program is available under Apache License Version 2.0, available at https:/
        * @mixes Vaadin.ThemableMixin
        * @demo demo/index.html
        */
-      class HorizontalLayoutElement extends Vaadin.OrderedLayoutMixin(Vaadin.ThemableMixin(Polymer.Element)) {
+      class HorizontalLayoutElement extends Vaadin.ThemableMixin(Polymer.Element) {
         static get is() {
           return 'vaadin-horizontal-layout';
         }
@@ -100,50 +107,6 @@ This program is available under Apache License Version 2.0, available at https:/
        */
       window.Vaadin = window.Vaadin || {};
       Vaadin.HorizontalLayoutElement = HorizontalLayoutElement;
-    }
-  </script>
-</dom-module>
-
-<dom-module id="vaadin-horizontal-layout-container">
-  <template>
-    <style>
-      :host {
-        display: flex;
-        flex: 1 1 auto;
-        /* Internal CSS property used for scoping --vaadin-horizontal-layout-gap */
-        --vaadin-horizontal-layout-gap-scoped: var(--vaadin-horizontal-layout-gap);
-      }
-
-      :host::before {
-        /*
-          Compensate for item margins, so that there are no gaps around
-          the layout itself.
-        */
-        margin-left: calc(-1 * var(--vaadin-horizontal-layout-gap-scoped));
-        content: "";
-      }
-
-      :host ::slotted(*) {
-        /* Enable grow and shrink for items. */
-        flex: 1 1 auto;
-
-        /* Margins make gaps between items */
-        margin-left: var(--vaadin-horizontal-layout-gap-scoped);
-      }
-    </style>
-    <slot></slot>
-  </template>
-  <script>
-    {
-      /**
-       * For internal use only
-       */
-      class VaadinHorizontalLayoutContainer extends Polymer.Element {
-        static get is() {
-          return 'vaadin-horizontal-layout-container';
-        }
-      }
-      customElements.define(VaadinHorizontalLayoutContainer.is, VaadinHorizontalLayoutContainer);
     }
   </script>
 </dom-module>

@@ -112,13 +112,15 @@ This program is available under Apache License Version 2.0, available at https:/
         flex: 1 1 auto;
         /* Internal CSS property used for scoping --vaadin-horizontal-layout-gap */
         --vaadin-horizontal-layout-gap-scoped: var(--vaadin-horizontal-layout-gap);
+      }
 
+      :host::before {
         /*
           Compensate for item margins, so that there are no gaps around
           the layout itself.
         */
-        margin-left: calc(-0.5 * var(--vaadin-horizontal-layout-gap-scoped));
-        margin-right: calc(-0.5 * var(--vaadin-horizontal-layout-gap-scoped));
+        margin-left: calc(-1 * var(--vaadin-horizontal-layout-gap-scoped));
+        content: "";
       }
 
       :host ::slotted(*) {
@@ -126,8 +128,7 @@ This program is available under Apache License Version 2.0, available at https:/
         flex: 1 1 auto;
 
         /* Margins make gaps between items */
-        margin-left: calc(0.5 * var(--vaadin-horizontal-layout-gap-scoped));
-        margin-right: calc(0.5 * var(--vaadin-horizontal-layout-gap-scoped));
+        margin-left: var(--vaadin-horizontal-layout-gap-scoped);
       }
     </style>
     <slot></slot>

@@ -113,13 +113,15 @@ This program is available under Apache License Version 2.0, available at https:/
         flex: 1 1 auto;
         /* Internal CSS property used for scoping --vaadin-vertical-layout-gap */
         --vaadin-vertical-layout-gap-scoped: var(--vaadin-vertical-layout-gap);
+      }
 
+      :host::before {
         /*
           Compensate for item margins, so that there are no gaps around
           the layout itself.
         */
-        margin-top: calc(-0.5 * var(--vaadin-vertical-layout-gap-scoped));
-        margin-bottom: calc(-0.5 * var(--vaadin-vertical-layout-gap-scoped));
+        margin-top: calc(-1 * var(--vaadin-vertical-layout-gap-scoped));
+        content: "";
       }
 
       :host ::slotted(*) {
@@ -127,8 +129,7 @@ This program is available under Apache License Version 2.0, available at https:/
         flex: 1 1 auto;
 
         /* Margins make gaps between items */
-        margin-top: calc(0.5 * var(--vaadin-vertical-layout-gap-scoped));
-        margin-bottom: calc(0.5 * var(--vaadin-vertical-layout-gap-scoped));
+        margin-top: var(--vaadin-vertical-layout-gap-scoped);
       }
     </style>
     <slot></slot>

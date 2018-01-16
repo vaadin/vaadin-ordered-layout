@@ -109,6 +109,12 @@
         expect(getComputedStyle(c2).getPropertyValue('margin-top')).to.equal(space);
       });
 
+      it('should set max-width to slotted items with theme="spacing"', () => {
+        element.setAttribute('theme', 'spacing');
+        expect(getComputedStyle(c1).getPropertyValue('max-width')).to.equal('100%');
+        expect(getComputedStyle(c2).getPropertyValue('max-width')).to.equal('100%');
+      });
+
       it('should compensate first item margin for theme="spacing"', () => {
         element.setAttribute('theme', 'spacing');
         const margin = getComputedStyle(element, '::before').getPropertyValue('margin-top');

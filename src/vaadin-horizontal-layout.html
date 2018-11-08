@@ -12,7 +12,9 @@ This program is available under Apache License Version 2.0, available at https:/
   <template>
     <style>
       :host {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: min-content;
         box-sizing: border-box;
       }
 
@@ -29,17 +31,8 @@ This program is available under Apache License Version 2.0, available at https:/
         padding: 1em;
       }
 
-      :host([theme~="spacing"]) ::slotted(*) {
-        margin-left: 1em;
-      }
-
-      /*
-        Compensate for the first item margin, so that there is no gap around
-        the layout itself.
-       */
-      :host([theme~="spacing"])::before {
-        content: "";
-        margin-left: -1em;
+      :host([theme~="spacing"]) {
+        grid-column-gap: 1em;
       }
     </style>
 

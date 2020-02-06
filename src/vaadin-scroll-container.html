@@ -1,6 +1,6 @@
 <!--
 @license
-Copyright (c) 2017 Vaadin Ltd.
+Copyright (c) 2020 Vaadin Ltd.
 This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
 -->
 
@@ -11,6 +11,10 @@ This program is available under Apache License Version 2.0, available at https:/
 <dom-module id="vaadin-scroll-container">
   <template>
     <style>
+      :host([hidden]) {
+        display: none !important;
+      }
+
       :host {
         display: block;
         overflow: auto;
@@ -23,7 +27,6 @@ This program is available under Apache License Version 2.0, available at https:/
       :host([vertical-scroll-disabled]) {
         overflow-y: hidden;
       }
-
     </style>
 
     <slot></slot>

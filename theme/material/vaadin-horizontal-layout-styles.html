@@ -51,6 +51,61 @@
         content: "";
         margin-left: -40px;
       }
+
+      /* RTL styles */
+      :host([dir="rtl"][theme~="spacing-xs"]) ::slotted(*) {
+        margin-left: inherit;
+        margin-right: 4px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-s"]) ::slotted(*) {
+        margin-left: inherit;
+        margin-right: 8px;
+      }
+
+      :host([dir="rtl"][theme~="spacing"]) ::slotted(*) {
+        margin-left: inherit;
+        margin-right: 16px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-l"]) ::slotted(*) {
+        margin-left: inherit;
+        margin-right: 24px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-xl"]) ::slotted(*) {
+        margin-left: inherit;
+        margin-right: 40px;
+      }
+
+      /*
+        Compensate for the first item margin, so that there is no gap around
+        the layout itself.
+       */
+      :host([dir="rtl"][theme~="spacing-xs"])::before {
+        margin-left: inherit;
+        margin-right: -4px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-s"])::before {
+        margin-left: inherit;
+        margin-right: -8px;
+      }
+
+      :host([dir="rtl"][theme~="spacing"])::before {
+        margin-left: inherit;
+        margin-right: -16px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-l"])::before {
+        margin-left: inherit;
+        margin-right: -24px;
+      }
+
+      :host([dir="rtl"][theme~="spacing-xl"])::before {
+        margin-left: inherit;
+        margin-right: -40px;
+      }
     </style>
   </template>
 </dom-module>

@@ -33,6 +33,11 @@ This program is available under Apache License Version 2.0, available at https:/
         margin-left: 1em;
       }
 
+      :host([dir="rtl"][theme~="spacing"]) ::slotted(*) {
+        margin-left: 0;
+        margin-right: 1em;
+      }
+
       /*
         Compensate for the first item margin, so that there is no gap around
         the layout itself.
@@ -40,6 +45,12 @@ This program is available under Apache License Version 2.0, available at https:/
       :host([theme~="spacing"])::before {
         content: "";
         margin-left: -1em;
+      }
+
+      :host([dir="rtl"][theme~="spacing"])::before {
+        content: "";
+        margin-left: 0;
+        margin-right: -1em;
       }
     </style>
 

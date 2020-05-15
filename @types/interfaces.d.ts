@@ -1,1 +1,1 @@
-export type ScrollerScrollDirection = 'horizontal' | 'vertical' | 'none' | null | undefined;
+export type ScrollerScrollDirection = 'horizontal' | 'vertical' | 'none' | undefined;

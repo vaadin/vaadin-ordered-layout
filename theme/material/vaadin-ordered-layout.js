@@ -1,17 +1,15 @@
-const $_documentContainer = document.createElement('template');
+import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 
-$_documentContainer.innerHTML = `<dom-module id="material-ordered-layout">
-  <template>
-    <style>
-      [theme~="margin"] {
-        margin: 16px;
-      }
+registerStyles(
+  '',
+  css`
+    [theme~='margin'] {
+      margin: 16px;
+    }
 
-      [theme~="padding"] {
-        padding: 16px;
-      }
-    </style>
-  </template>
-</dom-module>`;
-
-document.head.appendChild($_documentContainer.content);
+    [theme~='padding'] {
+      padding: 16px;
+    }
+  `,
+  { moduleId: 'material-ordered-layout' }
+);

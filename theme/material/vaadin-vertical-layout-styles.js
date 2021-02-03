@@ -1,6 +1,7 @@
-<link rel="import" href="vaadin-ordered-layout.html">
+import './vaadin-ordered-layout.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-<dom-module id="material-vertical-layout" theme-for="vaadin-vertical-layout">
+const $_documentContainer = html`<dom-module id="material-vertical-layout" theme-for="vaadin-vertical-layout">
   <template>
     <style include="material-ordered-layout">
       :host([theme~="spacing-xs"]) ::slotted(*) {
@@ -53,4 +54,6 @@
       }
     </style>
   </template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild($_documentContainer.content);

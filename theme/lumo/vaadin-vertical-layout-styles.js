@@ -1,7 +1,8 @@
-<link rel="import" href="../../../vaadin-lumo-styles/spacing.html">
-<link rel="import" href="vaadin-ordered-layout.html">
+import '@vaadin/vaadin-lumo-styles/spacing.js';
+import './vaadin-ordered-layout.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-<dom-module id="lumo-vertical-layout" theme-for="vaadin-vertical-layout">
+const $_documentContainer = html`<dom-module id="lumo-vertical-layout" theme-for="vaadin-vertical-layout">
   <template>
     <style include="lumo-ordered-layout">
       :host([theme~="spacing-xs"]) ::slotted(*) {
@@ -54,4 +55,6 @@
       }
     </style>
   </template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild($_documentContainer.content);

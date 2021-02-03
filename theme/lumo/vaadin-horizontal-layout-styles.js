@@ -1,26 +1,28 @@
-<link rel="import" href="vaadin-ordered-layout.html">
+import '@vaadin/vaadin-lumo-styles/spacing.js';
+import './vaadin-ordered-layout.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-<dom-module id="material-horizontal-layout" theme-for="vaadin-horizontal-layout">
+const $_documentContainer = html`<dom-module id="lumo-horizontal-layout" theme-for="vaadin-horizontal-layout">
   <template>
-    <style include="material-ordered-layout">
+    <style include="lumo-ordered-layout">
       :host([theme~="spacing-xs"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 4px;
+        margin-left: var(--lumo-space-xs);
       }
 
       :host([theme~="spacing-s"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 8px;
+        margin-left: var(--lumo-space-s);
       }
 
       :host([theme~="spacing"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 16px;
+        margin-left: var(--lumo-space-m);
       }
 
       :host([theme~="spacing-l"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 24px;
+        margin-left: var(--lumo-space-l);
       }
 
       :host([theme~="spacing-xl"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 40px;
+        margin-left: var(--lumo-space-xl);
       }
 
       /*
@@ -36,44 +38,44 @@
       }
 
       :host([theme~="spacing-xs"]:not([dir="rtl"]))::before {
-        margin-left: -4px;
+        margin-left: calc(var(--lumo-space-xs) * -1);
       }
 
       :host([theme~="spacing-s"]:not([dir="rtl"]))::before {
-        margin-left: -8px;
+        margin-left: calc(var(--lumo-space-s) * -1);
       }
 
       :host([theme~="spacing"]:not([dir="rtl"]))::before {
-        margin-left: -16px;
+        margin-left: calc(var(--lumo-space-m) * -1);
       }
 
       :host([theme~="spacing-l"]:not([dir="rtl"]))::before {
-        margin-left: -24px;
+        margin-left: calc(var(--lumo-space-l) * -1);
       }
 
       :host([theme~="spacing-xl"]:not([dir="rtl"]))::before {
-        margin-left: -40px;
+        margin-left: calc(var(--lumo-space-xl) * -1);
       }
 
       /* RTL styles */
       :host([dir="rtl"][theme~="spacing-xs"]) ::slotted(*) {
-        margin-right: 4px;
+        margin-right: var(--lumo-space-xs);
       }
 
       :host([dir="rtl"][theme~="spacing-s"]) ::slotted(*) {
-        margin-right: 8px;
+        margin-right: var(--lumo-space-s);
       }
 
       :host([dir="rtl"][theme~="spacing"]) ::slotted(*) {
-        margin-right: 16px;
+        margin-right: var(--lumo-space-m);
       }
 
       :host([dir="rtl"][theme~="spacing-l"]) ::slotted(*) {
-        margin-right: 24px;
+        margin-right: var(--lumo-space-l);
       }
 
       :host([dir="rtl"][theme~="spacing-xl"]) ::slotted(*) {
-        margin-right: 40px;
+        margin-right: var(--lumo-space-xl);
       }
 
       /*
@@ -81,24 +83,26 @@
         the layout itself.
        */
       :host([dir="rtl"][theme~="spacing-xs"])::before {
-        margin-right: -4px;
+        margin-right: calc(var(--lumo-space-xs) * -1);
       }
 
       :host([dir="rtl"][theme~="spacing-s"])::before {
-        margin-right: -8px;
+        margin-right: calc(var(--lumo-space-s) * -1);
       }
 
       :host([dir="rtl"][theme~="spacing"])::before {
-        margin-right: -16px;
+        margin-right: calc(var(--lumo-space-m) * -1);
       }
 
       :host([dir="rtl"][theme~="spacing-l"])::before {
-        margin-right: -24px;
+        margin-right: calc(var(--lumo-space-l) * -1);
       }
 
       :host([dir="rtl"][theme~="spacing-xl"])::before {
-        margin-right: -40px;
+        margin-right: calc(var(--lumo-space-xl) * -1);
       }
     </style>
   </template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild($_documentContainer.content);

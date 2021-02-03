@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>vaadin-scroller tests</title>
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../../test-fixture/test-fixture.html">
-  <link rel="import" href="../vaadin-scroller.html">
-  <link rel="import" href="common.html">
+  <script src="../../../wct-browser-legacy/browser.js"></script>
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script type="module" src="../../../@polymer/test-fixture/test-fixture.js"></script>
+  <script type="module" src="../vaadin-scroller.js"></script>
+  <script type="module" src="./common.js"></script>
 </head>
 
 <body>
@@ -18,41 +18,43 @@
     </template>
   </test-fixture>
 
-  <script>
-    describe('basic tests', () => {
-      let element;
+  <script type="module">
+import '@polymer/test-fixture/test-fixture.js';
+import '../vaadin-scroller.js';
+import './common.js';
+describe('basic tests', () => {
+  let element;
 
-      beforeEach(() => {
-        element = fixture('default');
-      });
+  beforeEach(() => {
+    element = fixture('default');
+  });
 
-      it('should have horizontal and vertical scrollbars by default', () => {
-        expect(getComputedStyle(element).overflowX).to.equal('auto');
-        expect(getComputedStyle(element).overflowY).to.equal('auto');
-      });
+  it('should have horizontal and vertical scrollbars by default', () => {
+    expect(getComputedStyle(element).overflowX).to.equal('auto');
+    expect(getComputedStyle(element).overflowY).to.equal('auto');
+  });
 
-      it('should be possible to enable only vertical scrollbars', () => {
-        element.setAttribute('scroll-direction', 'vertical');
-        expect(getComputedStyle(element).overflowY).to.equal('auto');
-        expect(getComputedStyle(element).overflowX).to.equal('hidden');
-      });
+  it('should be possible to enable only vertical scrollbars', () => {
+    element.setAttribute('scroll-direction', 'vertical');
+    expect(getComputedStyle(element).overflowY).to.equal('auto');
+    expect(getComputedStyle(element).overflowX).to.equal('hidden');
+  });
 
-      it('should be possible to enable only horizontal scrollbars', () => {
-        element.setAttribute('scroll-direction', 'horizontal');
-        expect(getComputedStyle(element).overflowX).to.equal('auto');
-        expect(getComputedStyle(element).overflowY).to.equal('hidden');
-      });
+  it('should be possible to enable only horizontal scrollbars', () => {
+    element.setAttribute('scroll-direction', 'horizontal');
+    expect(getComputedStyle(element).overflowX).to.equal('auto');
+    expect(getComputedStyle(element).overflowY).to.equal('hidden');
+  });
 
-      it('should be possible to disable both direction scrollbars', () => {
-        element.setAttribute('scroll-direction', 'none');
-        expect(getComputedStyle(element).overflowX).to.equal('hidden');
-        expect(getComputedStyle(element).overflowY).to.equal('hidden');
-      });
+  it('should be possible to disable both direction scrollbars', () => {
+    element.setAttribute('scroll-direction', 'none');
+    expect(getComputedStyle(element).overflowX).to.equal('hidden');
+    expect(getComputedStyle(element).overflowY).to.equal('hidden');
+  });
 
-      it('should extend Vaadin.ThemableMixin', () => {
-        expect(element.constructor._includeStyle).to.be.function;
-      });
-    });
-
-  </script>
+  it('should extend Vaadin.ThemableMixin', () => {
+    expect(element.constructor._includeStyle).to.be.function;
+  });
+});
+</script>
 </body>

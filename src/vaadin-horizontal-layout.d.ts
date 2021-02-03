@@ -1,10 +1,6 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-
 import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js';
 
 import {ElementMixin} from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.js';
-
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
 /**
  * `<vaadin-horizontal-layout>` provides a simple way to horizontally align your HTML elements.
@@ -29,7 +25,7 @@ import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 declare class HorizontalLayoutElement extends
   ThemableMixin(
   ElementMixin(
-  PolymerElement)) {
+  HTMLElement)) {
 }
 
 declare global {

@@ -28,7 +28,7 @@ import { html } from '@polymer/polymer/lib/utils/html-tag.js';
  * `theme="padding"` | Applies the default amount of CSS padding for the host element (specified by the theme)
  * `theme="spacing"` | Applies the default amount of CSS margin between items (specified by the theme)
  *
- * @extends PolymerElement
+ * @extends HTMLElement
  * @mixes ThemableMixin
  * @mixes ElementMixin
  */

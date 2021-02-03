@@ -17,7 +17,7 @@ import { html } from '@polymer/polymer/lib/utils/html-tag.js';
  * </vaadin-scroller>
  * ```
  *
- * @extends PolymerElement
+ * @extends HTMLElement
  * @mixes ThemableMixin
  * @mixes ElementMixin
  */

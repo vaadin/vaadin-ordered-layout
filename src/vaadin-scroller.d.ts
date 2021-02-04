@@ -16,7 +16,7 @@ declare class ScrollerElement extends ThemableMixin(ElementMixin(HTMLElement)) {
    * This property indicates the scroll direction. Supported values are `vertical`, `horizontal`, `none`.
    * When `scrollDirection` is undefined scrollbars will be shown in both directions.
    */
-  scrollDirection: ScrollerScrollDirection;
+  scrollDirection: 'horizontal' | 'vertical' | 'none' | undefined;
 }
 
 declare global {
@@ -26,5 +26,3 @@ declare global {
 }
 
 export { ScrollerElement };
-
-import { ScrollerScrollDirection } from '../@types/interfaces';

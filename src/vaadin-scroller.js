@@ -59,7 +59,6 @@ class ScrollerElement extends ElementMixin(ThemableMixin(PolymerElement)) {
       /**
        * This property indicates the scroll direction. Supported values are `vertical`, `horizontal`, `none`.
        * When `scrollDirection` is undefined scrollbars will be shown in both directions.
-       * @type {!ScrollerScrollDirection}
        */
       scrollDirection: {
         type: String,

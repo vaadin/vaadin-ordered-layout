@@ -34,43 +34,43 @@ import { ElementMixin } from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.
 class VerticalLayoutElement extends ElementMixin(ThemableMixin(PolymerElement)) {
   static get template() {
     return html`
-    <style>
-      :host {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        box-sizing: border-box;
-      }
+      <style>
+        :host {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          box-sizing: border-box;
+        }
 
-      :host([hidden]) {
-        display: none !important;
-      }
+        :host([hidden]) {
+          display: none !important;
+        }
 
-      /* Theme variations */
-      :host([theme~="margin"]) {
-        margin: 1em;
-      }
+        /* Theme variations */
+        :host([theme~='margin']) {
+          margin: 1em;
+        }
 
-      :host([theme~="padding"]) {
-        padding: 1em;
-      }
+        :host([theme~='padding']) {
+          padding: 1em;
+        }
 
-      :host([theme~="spacing"]) ::slotted(*) {
-        margin-top: 1em;
-      }
+        :host([theme~='spacing']) ::slotted(*) {
+          margin-top: 1em;
+        }
 
-      /*
+        /*
         Compensate for the first item margin, so that there is no gap around
         the layout itself.
        */
-      :host([theme~="spacing"])::before {
-        content: "";
-        margin-top: -1em;
-      }
-    </style>
+        :host([theme~='spacing'])::before {
+          content: '';
+          margin-top: -1em;
+        }
+      </style>
 
-    <slot></slot>
-`;
+      <slot></slot>
+    `;
   }
 
   static get is() {

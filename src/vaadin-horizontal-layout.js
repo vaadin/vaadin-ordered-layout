@@ -34,52 +34,52 @@ import { ElementMixin } from '@vaadin/vaadin-element-mixin/vaadin-element-mixin.
 class HorizontalLayoutElement extends ElementMixin(ThemableMixin(PolymerElement)) {
   static get template() {
     return html`
-    <style>
-      :host {
-        display: flex;
-        box-sizing: border-box;
-      }
+      <style>
+        :host {
+          display: flex;
+          box-sizing: border-box;
+        }
 
-      :host([hidden]) {
-        display: none !important;
-      }
+        :host([hidden]) {
+          display: none !important;
+        }
 
-      /* Theme variations */
-      :host([theme~="margin"]) {
-        margin: 1em;
-      }
+        /* Theme variations */
+        :host([theme~='margin']) {
+          margin: 1em;
+        }
 
-      :host([theme~="padding"]) {
-        padding: 1em;
-      }
+        :host([theme~='padding']) {
+          padding: 1em;
+        }
 
-      :host([theme~="spacing"]:not([dir="rtl"])) ::slotted(*) {
-        margin-left: 1em;
-      }
+        :host([theme~='spacing']:not([dir='rtl'])) ::slotted(*) {
+          margin-left: 1em;
+        }
 
-      :host([theme~="spacing"][dir="rtl"]) ::slotted(*) {
-        margin-right: 1em;
-      }
+        :host([theme~='spacing'][dir='rtl']) ::slotted(*) {
+          margin-right: 1em;
+        }
 
-      /*
+        /*
         Compensate for the first item margin, so that there is no gap around
         the layout itself.
        */
-      :host([theme~="spacing"])::before {
-        content: "";
-      }
+        :host([theme~='spacing'])::before {
+          content: '';
+        }
 
-      :host([theme~="spacing"]:not([dir="rtl"]))::before {
-        margin-left: -1em;
-      }
+        :host([theme~='spacing']:not([dir='rtl']))::before {
+          margin-left: -1em;
+        }
 
-      :host([theme~="spacing"][dir="rtl"])::before {
-        margin-right: -1em;
-      }
-    </style>
+        :host([theme~='spacing'][dir='rtl'])::before {
+          margin-right: -1em;
+        }
+      </style>
 
-    <slot></slot>
-`;
+      <slot></slot>
+    `;
   }
 
   static get is() {

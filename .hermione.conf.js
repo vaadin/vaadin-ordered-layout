@@ -2,7 +2,7 @@ module.exports = {
   browsers: {
     chrome: {
       baseUrl: 'http://localhost:8080/test/visual/',
-      screenshotsDir: () => 'test/visual/screens/vaadin-details',
+      screenshotsDir: () => 'test/visual/screens/vaadin-ordered-layout',
       desiredCapabilities: {
         browserName: 'chrome',
         version: '85.0',
